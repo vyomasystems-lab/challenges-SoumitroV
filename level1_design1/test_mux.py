@@ -51,7 +51,7 @@ async def test_mux(dut):
         
         await Timer(2, units = 'ns')
 
-        assert dut.out.value == 2, "Test failed for sel = {sel}".format(sel = i)
+        assert dut.out.value == 2, "Test failed for sel = {sel}, expected output = {exp_out}, incorrect output {incorrect_out}".format(sel = i, exp_out = 2, incorrect_out = dut.out.value)
         # print("Test completed " + str(i+1) + " times")
 
 
