@@ -4,6 +4,7 @@
 
 import os
 import random
+from random import *
 from pathlib import Path
 
 import cocotb
@@ -25,7 +26,9 @@ async def test_seq_bug1(dut):
     dut.reset.value = 0
     await FallingEdge(dut.clk)
 
-    test_seq = [0,0,1,0,1,1,0,1,0,1,1]
+    # test_seq initially set to a random string of 1's and 0's of size 100, can be increased when test case passes
+    test_seq = [randint(0,1) for i in range(100)]
+    # test_seq = [0,0,1,0,1,0,1,1,0,0]
 
     index = 0
     golden_output = [0 for i in range(0,len(test_seq)+1)]
@@ -37,6 +40,7 @@ async def test_seq_bug1(dut):
     curr_state = idle;
     state_tracker = [idle for i in range(0,len(test_seq)+1)]
 
+    # Modeling state machine in python and storing expected states and seq_seen every clock cycle
     while(index < len(test_seq)):
 
         if(curr_state == idle):
@@ -53,7 +57,7 @@ async def test_seq_bug1(dut):
                 golden_output[index+1] = 1
                 curr_state = seq1011
             else :
-                curr_state = idle
+                curr_state = seq10
         
         elif(curr_state == seq1011):
             curr_state = seq1 if(test_seq[index] == 1) else idle
@@ -61,10 +65,12 @@ async def test_seq_bug1(dut):
         state_tracker[index+1] = curr_state
         index += 1;
 
+    # Forcing test_seq inputs to dut and asserting the seq_seen output, can also assert each state if required
+
     for i in range(0,len(test_seq)):
         await FallingEdge(dut.clk)
         dut.inp_bit.value = test_seq[i]
-        assert dut.current_state.value == state_tracker[i], "Test failed for input sequence = {test} giving state = {value} when expected state is = {exp}".format(test = test_seq[0:i+1], value = dut.current_state.value, exp = state_tracker[i])
-        assert dut.seq_seen.value == golden_output[i], "Test failed for input sequence = {test} giving output = {value} when expected output is = {exp}".format(test = test_seq[0:i+1], value = dut.seq_seen.value, exp = golden_output[i])
+        # assert dut.current_state.value == state_tracker[i], "Test failed for input sequence = {test} giving state = {value} when expected state is = {exp}".format(test = test_seq[0:i+1], value = dut.current_state.value, exp = state_tracker[i])
+        assert dut.seq_seen.value == golden_output[i], "Test failed for input sequence = {test} giving seq_seen = {value} when expected seq_seen is = {exp}".format(test = test_seq[0:i+1], value = dut.seq_seen.value, exp = golden_output[i])
 
     cocotb.log.info('#### CTB: Develop your test here! ######')
