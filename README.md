@@ -23,5 +23,5 @@ Fig 1. Vyoma's UpTickPro tool environment
 
 ## Level-1 Design-1 Multiplexer
 
-
+The first design was that of a 31:1 multiplexer, with 31 input lines, 4 bit select bus and 1 output line. The block diagram of multiplexer with input and output is presented in Fig. 2. 
 
