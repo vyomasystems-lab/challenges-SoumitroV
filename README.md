@@ -210,18 +210,18 @@ Fig. 15 Failed test output
 
 ### Debug Scenario 1
 
-- Can be traced to line 65, if current_state = SEQ_101 and inp_bit = 1'b0, then next_state should be SEQ_10 not IDLE
+- Can be traced to line 2661, for the given mav_putvalue_instr = 32'b0100000_rs2_rs1_111_rd_0110011, the expected output is (mav_putvalue_src1 & ~mav_putvalue_src2)<<1, however the code has been written for (mav_putvalue_src1 & mav_putvalue_src2)<<1
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180594517-d7e3572a-cab8-448c-a361-59fd9d6b37a6.png"  width="30%" >
+<img src="https://user-images.githubusercontent.com/41693726/180594517-d7e3572a-cab8-448c-a361-59fd9d6b37a6.png"  width="70%" >
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180594519-9bb79337-3124-41df-8ed7-bf927a185b7d.png"  width="30%" >
+<img src="https://user-images.githubusercontent.com/41693726/180594519-9bb79337-3124-41df-8ed7-bf927a185b7d.png"  width="70%" >
 </p>
 <p align="center">
 Fig. 16 Buggy code
 </p>
 
-- <b>Debug Strategy:</b> Replace ```next_state = IDLE;``` with ```next_state = SEQ_10;``` in line 65 
+- <b>Debug Strategy:</b> Replace ```x__h39889``` with ```(mav_putvalue_src1 & ~mav_putvalue_src2)<<1``` in line 2661
 
 
