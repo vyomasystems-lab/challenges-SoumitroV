@@ -1,7 +1,7 @@
 # Capture The Bug Hackathon
 ## Table of Contents
-- [Introduction]
-- [Level-1 Design-1 Multiplexer]
+- [Introduction](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#introduction)
+- [Level-1 Design-1 Multiplexer](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-1-multiplexer)
 - [Level-1 Design-2 Sequence Detector]
 - [Level-2 Design-1 Bitmanipulation Coprocessor]
 - [Level-3 Design-1 Median Filter]
@@ -68,7 +68,7 @@ Fig 4. Buggy code
 <img src="https://user-images.githubusercontent.com/41693726/180594445-cd74df70-601e-4094-b23e-1fb92a0230cd.png"  width="95%" >
 </p>
 <p align="center">
-Fig 3. Failed test output
+Fig 5. Failed test output
 </p>
 
 
@@ -80,7 +80,10 @@ Fig 3. Failed test output
 <img src="https://user-images.githubusercontent.com/41693726/180594437-d2e9cc41-e704-43b1-aa98-69d76e9a0697.png"  width="30%" >
 </p>
 <p align="center">
-Fig 4. Buggy code
+Fig 6. Buggy code
 </p>
 
 - <b>Debug Strategy:</b> Add case 5'b11110 : out = inp30; to line 58 before default case
+
+## Level-1 Design-2 Sequence Detector
+
