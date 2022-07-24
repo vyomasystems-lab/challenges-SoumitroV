@@ -31,7 +31,7 @@ module seq_detect_1011(seq_seen, inp_bit, reset, clk);
       current_state <= next_state;
     end
   end
-
+  
   // state transition based on the input and current state
   always @(inp_bit or current_state)
   begin
