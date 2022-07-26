@@ -3,7 +3,7 @@
 - [Introduction](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#introduction)
 - [Level-1 Design-1 Multiplexer](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-1-multiplexer)
 - [Level-1 Design-2 Sequence Detector](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-2-sequence-detector)
-- [Level-2 Design-1 Bitmanipulation Coprocessor]
+- [Level-2 Design-1 Bitmanipulation Coprocessor](https://github.com/vyomasystems-lab/challenges-SoumitroV#level-2-design-1-bitmanipulation-coprocessor)
 - [Level-3 Design-1 Median Filter]
 - [Conclusion]
 - [Author]
@@ -223,5 +223,29 @@ Fig. 16 Buggy code
 </p>
 
 - <b>Debug Strategy:</b> Replace ```x__h39889``` with ```(mav_putvalue_src1 & ~mav_putvalue_src2)<<1``` in line 2661
+
+
+## Level-3 Design-1 Median Filter
+
+The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had  
+<p align="center">
+<img src="https://user-images.githubusercontent.com/41693726/180606225-3e0d4a9b-4e22-429f-a802-675eb3f55af3.png"  height="250" >
+</p>
+<p align="center">
+Fig. 14 Bitmanipulation Coprocessor block diagram
+</p>
+
+### Test Scenario 1
+
+- Test inputs mav_putvalue_src1 = 0x1, mav_putvalue_src2 = 0x0, mav_putvalue_src3 = 0x0 and mav_putvalue_instr = 0x40007033
+- Test output mav_putvalue = 0x1
+- Expected output mav_putvalue = 0x3
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/41693726/180594522-cf94c2f6-cfa4-4b63-a0fe-3205628a6197.png"  width="95%" >
+</p>
+<p align="center">
+Fig. 15 Failed test output
+</p>
 
 
