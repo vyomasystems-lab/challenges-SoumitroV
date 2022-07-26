@@ -5,9 +5,11 @@ PYTHON_CONFIGURE_OPTS="--enable-shared" pyenv install 3.8.13
 pyenv global 3.8.13
 pip install --upgrade pip
 pip install cocotb
+pip install numpy
 export PYTHONPATH=/workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/pygpi:$PYTHONPATH
 cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/cocotb*  /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
 cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/pygpi /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
+cp -r /workspace/.pyenv_mirror/user/3.8.13/lib/python3.8/site-packages/numpy*  /home/gitpod/.pyenv/versions/3.8.13/lib/python3.8/site-packages/
 rm -rf core.*
 clear
 echo "****** UpTickPro (Evaluation Version) 1.0.0 *******"
