@@ -227,7 +227,7 @@ Fig. 16 Buggy code
 
 ## Level-3 Design-1 Median Filter
 
-The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had  
+The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had three 32 bit input words to tranfer twelve 8 bit sized pixel values to the core. The output is a 32 bit word that outputs four 8 bit sized pixels after processing with one clock cycle latency. The design was chosen to utilize the advantages of Vyoma's UpTick pro tool over testbenches written in verilog or VHDL. Since the testbench is written in a python environment, the  
 <p align="center">
 <img src="https://user-images.githubusercontent.com/41693726/180606225-3e0d4a9b-4e22-429f-a802-675eb3f55af3.png"  height="250" >
 </p>
