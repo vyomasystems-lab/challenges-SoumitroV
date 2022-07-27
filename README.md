@@ -227,25 +227,29 @@ Fig. 16 Buggy code
 
 ## Level-3 Design-1 Median Filter
 
-The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had three 32 bit input words to tranfer twelve 8 bit sized pixel values to the core. The output is a 32 bit word that outputs four 8 bit sized pixels after processing with one clock cycle latency. The design was chosen to utilize the advantages of Vyoma's UpTick pro tool over testbenches written in verilog or VHDL. Since the testbench is written in a python environment, the  
+The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had three 32 bit input words to tranfer twelve 8 bit sized pixel values to the core. The output is a 32 bit word that outputs four 8 bit sized pixels after processing with one clock cycle latency. The design was chosen to utilize the advantages of Vyoma's UpTick pro tool over testbenches written in verilog or VHDL. Since the testbench is written in a python environment, the image processing and matrix manipulation modules opencv and numpy can be leveraged to use. An image was fed to median filter in proper format and the output pixels were rearranged to form the filtered image. The resuling image was compared with the output from prebuilt median filter in opencv module. If they did not match then the dtu was said to fail the test. A visual test can be created by subtracting dut and software results, for a proper match the output image is full of 0's and is completely black.  
+
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180606225-3e0d4a9b-4e22-429f-a802-675eb3f55af3.png"  height="250" >
+<img src="https://user-images.githubusercontent.com/41693726/181292688-1dc0dd07-11e6-4fc2-9543-f8ebda901dc3.png"  height="450" >
 </p>
 <p align="center">
-Fig. 14 Bitmanipulation Coprocessor block diagram
+Fig. 17 Median filter architecture
 </p>
 
 ### Test Scenario 1
 
-- Test inputs mav_putvalue_src1 = 0x1, mav_putvalue_src2 = 0x0, mav_putvalue_src3 = 0x0 and mav_putvalue_instr = 0x40007033
-- Test output mav_putvalue = 0x1
-- Expected output mav_putvalue = 0x3
+- Test input Input image as presented in Fig. 18
+- Test output DUT filtered image as presented in Fig. 18
+- Expected output Software filtered image as presented in Fig. 18
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180594522-cf94c2f6-cfa4-4b63-a0fe-3205628a6197.png"  width="95%" >
+<img src="https://user-images.githubusercontent.com/41693726/181292884-e57804af-fec4-48e8-b004-deb8d1f69a46.png" width="22%">
+<img src="https://user-images.githubusercontent.com/41693726/181292964-ed0e3baa-a276-4ade-a5b5-1269ed0902ad.png" width="22%">
+<img src="https://user-images.githubusercontent.com/41693726/181292983-2caad1d8-5d56-4d5f-93ea-9fedfd3d47e2.png" width="22%">
+<img src="https://user-images.githubusercontent.com/41693726/181296962-2cf00e51-e550-4670-a21b-c97b2fd6f23a.png" width="22%">
 </p>
 <p align="center">
-Fig. 15 Failed test output
+Fig. 15 a) Input image b) DUT filtered image c) Software filtered image d) Difference b/w DUT and Software
 </p>
 
 
