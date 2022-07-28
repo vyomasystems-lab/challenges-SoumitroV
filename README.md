@@ -5,10 +5,10 @@
 - [Level-1 Design-2 Sequence Detector](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-2-sequence-detector)
 - [Level-2 Design-1 Bitmanipulation Coprocessor](https://github.com/vyomasystems-lab/challenges-SoumitroV#level-2-design-1-bitmanipulation-coprocessor)
 - [Level-3 Design-1 Median Filter](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-3-design-1-median-filter)
-- [Conclusion]
-- [Author]
-- [Acknowledgements]
-- [References]
+- [Conclusion](https://github.com/vyomasystems-lab/challenges-SoumitroV/blob/master/README.md#conclusion)
+- [Author](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#author)
+- [Acknowledgements](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#acknowledgements)
+- [References](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#references)
 
 ## Introduction
 
@@ -292,6 +292,24 @@ Fig. 20 Buggy code
 - <b>Debug Strategy:</b> Replace ```data_b - data_a > 0``` with ```data_b > data_a``` in line 376
 
 ## Conclusion
-This repository presents testing and debug results of four RTL designs written in verilog using Vyoma's UpTick pro tool. 
+This repository presents testing and debug results using Vyoma's UpTick pro tool for four RTL designs written in verilog. The hackathon provides a new perspective of testing by leveraging python language and its modules. New image processing and ML related hardware implementations can also be directly tested using this software.
+
+## Author
+
+Soumitro Vyapari, B.Tech(EE), Indian Institute of Technology Tirupati,  Andhra Pradesh 517506.
+
+## Acknowledgements
+
+- [Kunal Ghosh, Co-founder, VSD Corp. Pvt Ltd.](https://www.linkedin.com/in/kunal-ghosh-vlsisystemdesign-com-28084836?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_contact_details%3B0xcWjpLDThSEo6S9UPO9Tw%3D%3D)
+- [Lavanya J](https://www.linkedin.com/in/lavanya-jagadeeswaran/)
+- [Vyoma Systems](https://vyomasystems.com/)
+- [NIELIT](https://www.nielit.gov.in/)
+- Hackathon community
+
+## References
+
+1. Miguel A. Vega-Rodr´ıguez, Juan Sanchez-P ´ erez, and Juan A. Gomez-Pulido. An fpga-based implementation for median filter meeting the realtime requirements of automated visual inspection systems. 01 2002.<br/>
+2. Wikipedia contributors. [Bitonic sorter](https://en.wikipedia.org/wiki/Bitonic_sorter) — Wikipedia, the free encyclopedia, 2022.<br/>
+3. [cocotb docs](https://docs.cocotb.org/en/stable/)
 
 
