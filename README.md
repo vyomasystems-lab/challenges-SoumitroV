@@ -213,10 +213,10 @@ Fig. 15 Failed test output
 - Can be traced to line 2661, for the given mav_putvalue_instr = 32'b0100000_rs2_rs1_111_rd_0110011, the expected output is (mav_putvalue_src1 & ~mav_putvalue_src2)<<1, however the code has been written for (mav_putvalue_src1 & mav_putvalue_src2)<<1
 
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180594517-d7e3572a-cab8-448c-a361-59fd9d6b37a6.png"  width="70%" >
+<img src="https://user-images.githubusercontent.com/41693726/181585023-ed66fa49-76ef-4c4e-a263-4e2756fa8d1f.png"  width="70%" >
 </p>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/180594519-9bb79337-3124-41df-8ed7-bf927a185b7d.png"  width="70%" >
+<img src="https://user-images.githubusercontent.com/41693726/181585031-7577ad7c-0c71-492b-bbb7-07e3e52955a3.png"  width="68%" >
 </p>
 <p align="center">
 Fig. 16 Buggy code
