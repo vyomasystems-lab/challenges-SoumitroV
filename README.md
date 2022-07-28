@@ -4,7 +4,7 @@
 - [Level-1 Design-1 Multiplexer](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-1-multiplexer)
 - [Level-1 Design-2 Sequence Detector](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-1-design-2-sequence-detector)
 - [Level-2 Design-1 Bitmanipulation Coprocessor](https://github.com/vyomasystems-lab/challenges-SoumitroV#level-2-design-1-bitmanipulation-coprocessor)
-- [Level-3 Design-1 Median Filter]
+- [Level-3 Design-1 Median Filter](https://github.com/vyomasystems-lab/challenges-SoumitroV/edit/master/README.md#level-3-design-1-median-filter)
 - [Conclusion]
 - [Author]
 - [Acknowledgements]
@@ -242,14 +242,56 @@ Fig. 17 Median filter architecture
 - Test output DUT filtered image as presented in Fig. 18
 - Expected output Software filtered image as presented in Fig. 18
 
+<table>
+  <tr>
+    <td width="25%"><img src="https://user-images.githubusercontent.com/41693726/181292884-e57804af-fec4-48e8-b004-deb8d1f69a46.png"></td>
+    <td width="25%"><img src="https://user-images.githubusercontent.com/41693726/181292964-ed0e3baa-a276-4ade-a5b5-1269ed0902ad.png"></td>
+    <td width="25%"><img src="https://user-images.githubusercontent.com/41693726/181292983-2caad1d8-5d56-4d5f-93ea-9fedfd3d47e2.png"></td>
+    <td width="25%"><img src="https://user-images.githubusercontent.com/41693726/181296962-2cf00e51-e550-4670-a21b-c97b2fd6f23a.png"></td>
+  </tr>
+  <tr>
+    <td align="center">a) Input image</td>
+    <td align="center">b) DUT filtered image</td>
+    <td align="center">c) Software filtered image</td>
+    <td align="center">d) Difference image</td>
+  </tr>
+</table>
 <p align="center">
-<img src="https://user-images.githubusercontent.com/41693726/181292884-e57804af-fec4-48e8-b004-deb8d1f69a46.png" width="22%">
-<img src="https://user-images.githubusercontent.com/41693726/181292964-ed0e3baa-a276-4ade-a5b5-1269ed0902ad.png" width="22%">
-<img src="https://user-images.githubusercontent.com/41693726/181292983-2caad1d8-5d56-4d5f-93ea-9fedfd3d47e2.png" width="22%">
-<img src="https://user-images.githubusercontent.com/41693726/181296962-2cf00e51-e550-4670-a21b-c97b2fd6f23a.png" width="22%">
+Fig. 18 Failed test output
+</p>
+
+### Debug Scenario 1
+To debug the design, a small matrix 
+```
+[12, 31, 23, 52]
+[121, 41, 41, 54]
+[54, 1, 63, 41] 
+```
+was fed to the core and each submodule in the core was tested separately. The first one was a common network that took in twelve pixels and perfored sort for every three adjacent pixels.
+- Test inputs common network input = [41, 54, 52, 63, 41, 23, 1, 41, 31, 54, 121, 12]
+- Test output common network output = [52, 54, 41, 23, 41, 63, 31, 41, 1, 12, 121, 54]
+- Expected output common network output = [54, 52, 41, 63, 41, 23, 41, 31, 1, 121, 54, 12]
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/41693726/181292807-918c3377-3a95-495e-ac15-f4f22ac6d793.png"  width="40%" >
 </p>
 <p align="center">
-Fig. 15 a) Input image b) DUT filtered image c) Software filtered image d) Difference b/w DUT and Software
+Fig. 19 Failed test output
 </p>
+
+- can be traced to line 376 of module node wherein the comparison has been done using ```data_b - data_a > 0```, although this is allowed in software programming languages with large data width, the data widths of pixel is 8 bit wide and subtraction of unsigned numbers is not performed properly resulting in incorrect comparison.
+
+
+<p align="center">
+<img src="https://user-images.githubusercontent.com/41693726/181292783-08a2c772-3204-400e-bde8-f659d08eea51.png"  width="50%" >
+</p>
+<p align="center">
+Fig. 20 Buggy code
+</p>
+
+- <b>Debug Strategy:</b> Replace ```data_b - data_a > 0``` with ```data_b > data_a``` in line 376
+
+## Conclusion
+This repository presents testing and debug results of four RTL designs written in verilog using Vyoma's UpTick pro tool. 
 
 
