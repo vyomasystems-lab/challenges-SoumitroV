@@ -227,7 +227,7 @@ Fig. 16 Buggy code
 
 ## Level-3 Design-1 Median Filter
 
-The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had three 32 bit input words to tranfer twelve 8 bit sized pixel values to the core. The output is a 32 bit word that outputs four 8 bit sized pixels after processing with one clock cycle latency. The design was chosen to utilize the advantages of Vyoma's UpTick pro tool over testbenches written in verilog or VHDL. Since the testbench is written in a python environment, the image processing and matrix manipulation modules opencv and numpy can be leveraged to use. An image was fed to median filter in proper format and the output pixels were rearranged to form the filtered image. The resuling image was compared with the output from prebuilt median filter in opencv module. If they did not match then the dtu was said to fail the test. A visual test can be created by subtracting dut and software results, for a proper match the output image is full of 0's and is completely black.  
+The fourth design was that to be chosen by participants. A median filter was chosen for level 3, it had three 32 bit input words to tranfer twelve 8 bit sized pixel values to the core. The output is a 32 bit word that outputs four 8 bit sized pixels after processing with one clock cycle latency. The design was chosen to utilize the advantages of Vyoma's UpTick pro tool over testbenches written in verilog or VHDL. Since the testbench is written in a python environment, the image processing and matrix manipulation modules opencv and numpy can be leveraged to use. An image was fed to median filter in proper format and the output pixels were rearranged to form the filtered image. The resuling image was compared with the output from prebuilt median filter in opencv module. If they did not match then the dut was said to fail the test. A visual test can be created by subtracting dut and software results, for a proper match the output image is full of 0's and is completely black.  
 
 <p align="center">
 <img src="https://user-images.githubusercontent.com/41693726/181292688-1dc0dd07-11e6-4fc2-9543-f8ebda901dc3.png"  height="450" >
@@ -279,7 +279,7 @@ was fed to the core and each submodule in the core was tested separately. The fi
 Fig. 19 Failed test output
 </p>
 
-- can be traced to line 376 of module node wherein the comparison has been done using ```data_b - data_a > 0```, although this is allowed in software programming languages with large data width, the data widths of pixel is 8 bit wide and subtraction of unsigned numbers is not performed properly resulting in incorrect comparison.
+- Can be traced to line 376 of module node wherein the comparison has been done using ```data_b - data_a > 0```, although this is allowed in software programming languages with large data width, the data widths of pixel is 8 bit wide and subtraction of unsigned numbers is not performed properly resulting in incorrect comparison.
 
 
 <p align="center">
